@@ -49,6 +49,9 @@ jobs:
 
       - name: Download compendium entries
         run: python -m deploy_tools.scrape_zotero "${{ secrets.API_KEY }}"
+      - name: Verify bibtex
+        run: |
+          deploy_tools/bibtex_verify.py data/data.bib
 
       - name: Build
         run: |
